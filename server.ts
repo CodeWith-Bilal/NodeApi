@@ -2,6 +2,7 @@ import express, { Request, Response } from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import authroutes from "./src/routes/auth";
+import products from "./src/routes/products"
 
 dotenv.config();
 
@@ -24,6 +25,7 @@ app.get("/", (req: Request, res: Response) => {
 })();
 
 app.use("/api/auth", authroutes);
+app.use("/api/products", products)
 
 app.listen(3000, () => {
   console.log("Server is Running on port 3000");
